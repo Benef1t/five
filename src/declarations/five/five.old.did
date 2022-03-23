@@ -1,0 +1,15 @@
+type Message = 
+ record {
+   author: text;
+   msg: text;
+   time: int;
+ };
+service : {
+  follow: (principal) -> ();
+  follows: () -> (vec principal) query;
+  get_name: () -> (opt text) query;
+  post: (text, text) -> ();
+  posts: () -> (vec Message) query;
+  set_name: (text) -> ();
+  timeline: () -> (vec Message);
+}
